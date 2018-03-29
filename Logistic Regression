@@ -1,1 +1,54 @@
+# Data Preprocessing----------
+
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+dataset = pd.read_csv("Social_Network_Ads.csv")
+
+#We will focus on ....| Age(Column #2) | Extended Salary(Column #3)  | Purchase_Expensive_Car(Yes or Not)
+
+X = dataset.iloc[:,[2,3]].values one. 
+Y = dataset.iloc[:,4].values
+
+
+#Test_Train spliting-----------
+
+from sklearn.cross_validation import train_test_split
+X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.25, random_state=0)
+
+#Taking care of categorical variable/ Feature Scaling ----------
+
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.fit_transform(X_test)
+
+#Fitting Logistic Regression to the Training Set------------
+
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state =0)
+classifier.fit(X_train, Y_train)
+
+#Predicting the Test set results---------------
+Y_pred = classifier.predict(X_test)
+
+#Making the confusion Matrix------------------
+#It will contain the predictions (Correct as well as Incorrect ones)
+
+from sklearn.metrics import confusion_matrix   #Here confusion matrix is a function bcz class always starts with CAPITAL LETTER
+cm = confusion_matrix(Y_test, Y_pred)
+
+At console 
+In [1]:>cm 
+Out [1]: 
+array([[65, 3],
+       [8, 24]])
+       
+#Here 65 + 24 = 89 - correct predictions
+#Here 3 + 8 = 11   - incorrect predictions
+
+
+
+
 
