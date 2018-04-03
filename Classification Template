@@ -1,13 +1,12 @@
-# Data Preprocessing
+# Import Libraries
 
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
+#Import the dataset
+
 dataset = pd.read_csv("Social_Network_Ads.csv")
-
-#We will focus on ....| Age(Column #2) | Extended Salary(Column #3)  | Purchase_Expensive_Car(Yes or Not)
-
 X = dataset.iloc[:,[2,3]].values one. 
 Y = dataset.iloc[:,4].values
 
@@ -28,7 +27,7 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.fit_transform(X_test)
 -------------------------------------------------------------------------------------------------------------------------------------
 
-#Fitting Logistic Regression to the Training Set
+#Fitting classifier to the Training Set
 #Create you classifier here.......
 
 #Predicting the Test set results
