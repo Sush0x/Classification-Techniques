@@ -42,6 +42,7 @@ Y_pred = classifier.predict(X_test)
 from sklearn.metrics import confusion_matrix   #Here confusion matrix is a function bcz class always starts with CAPITAL LETTER
 cm = confusion_matrix(Y_test, Y_pred)
 
+#8 - incorrect fitting only.
 -------------------------------------------------------------------------------------------------------------------------------------
 
 #Visualizing the training set
